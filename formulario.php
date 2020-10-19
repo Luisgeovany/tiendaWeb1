@@ -20,7 +20,7 @@
                 <div class="col-6">
                 <form class="form" action="formulario.php" method="POST">
                 <div class="row">
-                        <div class="col">
+                        <div class="col-6">
                             <label for="precio">Nombre Producto:</label>
                             <input type="text" class="form-control" placeholder="Ingrese el Nombre" required>
                         </div>
