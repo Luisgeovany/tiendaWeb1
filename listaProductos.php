@@ -37,13 +37,14 @@
         $transaccion= new BaseDatos();
 
         //2. Crear la consulta SQL para buscar datos
-        $consultaSQL="SELECT * FROM productos ";
+        $consultaSQL="SELECT * FROM productos where 1";
 
         //3. Utilizar el metodo para consultarDatos()
         $productos=$transaccion->consultarDatos($consultaSQL);
-
         
 
+        
+   
     ?>
 
     <div class="container">
@@ -54,21 +55,20 @@
 
                 <div class="col mb-4">
                     <div class="card h-100">
-                        <img src="http://placeimg.com/640/480/people" class="card-img-top" alt="imagen">
+                        <img src="<?php echo($producto["Imagen"])?>" class="card-img-top" alt="imagen">
                         <div class="card-body">
                             <h3 class="card-title"><?php echo($producto["Nombre"]) ?></h3>
-                            <h3 class="card-text"><?php echo($producto["Marca"]) ?></h3>
-                            <h3 class="card-text"><?php echo($producto["Precio"]) ?></h3>
+                            <p class="card-text"><?php echo($producto["Marca"]) ?></p>
+                            <p class="card-text"><?php echo($producto["Precio"]) ?></p>
+                            <a href="eliminarproductos.php?id=<?php echo($producto["ID"])?>" class="btn btn-danger">Eliminar</a>
                         </div>
                     </div>
                 </div>
-
+                
             <?php endforeach?>
-
         </div>
-    
-    
     </div>
+    
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </body>

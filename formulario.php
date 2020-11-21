@@ -35,6 +35,8 @@
                 <input type="text" class="input-100" name="nombre" placeholder="Nombre del Producto" required>
                 <input type="text"class="input-50" name="marca"placeholder="Marca del Producto"required>
                 <input type="text"class="input-50" name="precio" placeholder="Precio del Producto"required>
+                <input type="text"class="input-100" name="imagen" placeholder="URL imagen">
+                 
                 <input type="submit" value="REGISTRAR" name="botonRegistrar" class="btn-enviar">
             </div>
         </form>
