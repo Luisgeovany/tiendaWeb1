@@ -43,15 +43,12 @@
     <?php
 
         class BaseDatos{
-            // Atributos--Variables
+            
             public $usuarioBD="root";
             public $passwordBD="";
 
-
-            // constructor
             public function __construct(){}
 
-            // metodos == Funciones
             public function conectarBD(){
 
             try{
@@ -65,16 +62,12 @@
             }
             public function agregarDatos($consultaSQL){
 
-                //1.Conectarme a la base de datos
                 $conexionBD=$this->conectarBD();
         
-                //2.Preparar la consulta que se va a realizar
                 $consultaInsertarDatos= $conexionBD->prepare($consultaSQL);
         
-                //3. Ejecutar la consulta
                 $resultado=$consultaInsertarDatos->execute();
                 
-                //4. Verificar el resultado
                 if($resultado){
                     echo("<h1>Producto agregado con exito</h1>");
                     echo '<a href="listaproductos.php">Ver Lista de Productos</a>';
@@ -86,20 +79,15 @@
         }
     
     public function consultarDatos($consultaSQL){
-        // Conectar la base de datos
+        
         $conexionBD=$this->conectarBD();
     
-        //2.Preparar la consulta que se va a realizar
         $consultaBuscarDatos= $conexionBD->prepare($consultaSQL);
     
-        //3. Definir la forma en la que vmos a traer los datos
-        // setFetchMode
         $consultaBuscarDatos->setFetchMode(PDO::FETCH_ASSOC);
     
-        //4.Ejecutar la consulta
         $consultaBuscarDatos->execute();
     
-        //5. Retornar los datos consultados
         return($consultaBuscarDatos->fetchAll());
     
     }
@@ -112,13 +100,10 @@
 
         $conexionBD=$this->conectarBD();
         
-        //2.Preparar la consulta que se va a realizar
         $consultaEliminarDatos= $conexionBD->prepare($consultaSQL);
-        
-        //3. Ejecutar la consulta
+
         $resultado=$consultaEliminarDatos->execute();
 
-        //4. Verificar el resultado
         if($resultado){
             echo("<h1>Producto Eliminado con exito</h1>");   
             echo '<a href="listaproductos.php">Ver Lista de Productos</a>';
@@ -129,23 +114,22 @@
     }
     public function editarDatos($consultaSQL){
 
-        //1.Conectarme a la base de datos
         $conexionBD=$this->conectarBD();
    
-        //2.Preparar la consulta que se va a realizar
         $consultaEditarDatos= $conexionBD->prepare($consultaSQL);
-    
-        //3. Ejecutar la consulta
+
         $resultado=$consultaEditarDatos->execute();
-    
-        //4. Verificar el resultado
+
         if($resultado){
             echo("Registro editado con exito");
+            echo '<a href="listaproductos.php">Ver Lista de Productos</a>';
         }else{
             echo("Error editando el registro");
         }
    
    }
+   
+
    
 }
 ?>
